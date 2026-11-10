@@ -67,7 +67,8 @@
 
   /* Hero */
   .hero { position: relative; color: #fff; padding: 120px 0 130px; overflow: hidden;
-          background: linear-gradient(135deg, #2b2622 0%, #4a3a30 55%, #7a4a2a 100%); }
+          background: linear-gradient(135deg, rgba(43,38,34,.88) 0%, rgba(74,58,48,.78) 55%, rgba(122,74,42,.65) 100%),
+                      url("assets/image/stena.jpg") center center / cover no-repeat; }
   .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; opacity: .9; }
   .hero::before { width: 260px; height: 260px; right: -60px; top: 40px; background: var(--accent); opacity: .25; }
   .hero::after  { width: 120px; height: 120px; right: 22%; bottom: 40px; background: #f59f00; opacity: .3; }
@@ -83,7 +84,14 @@
   /* О зале */
   .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
   .about-grid p + p { margin-top: 14px; }
-  .about-art { background: var(--sand); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+  .about-art { background: var(--sand); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
+  .about-art img { max-width: 100%; height: auto; width: 100%; border-radius: calc(var(--radius) - 6px);
+                   display: block; margin-inline: auto; }
+
+  /* Фото в секциях */
+  .section-photo { max-width: 100%; height: auto; display: block; margin: 0 auto 44px;
+                   border-radius: var(--radius); box-shadow: var(--shadow);
+                   width: min(720px, 100%); }
 
   /* Карточки */
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
@@ -191,16 +199,8 @@
         <p>«Зацеп» — небольшой уютный боулдеринг-зал рядом с метро. Мы построили его для студентов и молодых специалистов, которым хочется двигаться, но надоели скучные тренажёры.</p>
         <p>Боулдеринг — это лазание на невысоких стенах над толстыми матами. Страховочное снаряжение не нужно: достаточно скальных туфель и желания попробовать. Каждая трасса — как головоломка, которую решаешь телом.</p>
       </div>
-      <div class="about-art" aria-hidden="true">
-        <svg viewBox="0 0 320 220" role="img" aria-label="Схема трассы">
-          <rect x="6" y="6" width="308" height="208" rx="14" fill="#fff" stroke="#e3d8cb" stroke-width="2"/>
-          <path d="M60 190 C 90 140, 130 150, 150 110 S 230 70, 262 28" fill="none" stroke="#e8590c" stroke-width="3" stroke-dasharray="6 6"/>
-          <circle cx="60" cy="190" r="13" fill="#e8590c"/>
-          <circle cx="112" cy="146" r="11" fill="#f59f00"/>
-          <circle cx="150" cy="110" r="14" fill="#2b2622"/>
-          <circle cx="206" cy="86" r="10" fill="#e8590c"/>
-          <circle cx="262" cy="28" r="15" fill="#c2410c"/>
-        </svg>
+      <div class="about-art">
+        <img src="assets/image/panoramazala.jpg" alt="Панорама боулдеринг-зала «Зацеп»: стены с зацепками и маты">
       </div>
     </div>
   </section>
@@ -210,6 +210,7 @@
       <span class="eyebrow">Преимущества</span>
       <h2>Почему к нам возвращаются</h2>
       <p class="lead">Мы убрали всё, что мешает начать, и оставили то, что делает занятия в удовольствие.</p>
+      <img class="section-photo" src="assets/image/sportsmen.jpg" alt="Спортсмен на скалодроме во время лазания">
       <div class="cards">
         <article class="card">
           <div class="icon">
