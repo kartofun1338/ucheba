@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Боулдеринг-зал «Зацеп» в Санкт-Петербурге: трассы разной сложности, инструкторы, аренда туфель. Первое занятие с инструктором — бесплатно.">
+<meta name="keywords" content="боулдеринг, скалолазание, боулдеринг зал, Санкт-Петербург, спорт, тренировки">
+<meta name="author" content="Боулдеринг-зал «Зацеп»">
+<meta name="theme-color" content="#2b2622">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Зацеп — боулдеринг-зал в Санкт-Петербурге">
+<meta property="og:description" content="Лезь вверх. Без верёвок и без страха. Первое занятие с инструктором — бесплатно.">
+<meta property="og:locale" content="ru_RU">
+<title>Зацеп — боулдеринг-зал в Санкт-Петербурге</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf6f1;
+    --surface: #ffffff;
+    --ink: #23201d;
+    --muted: #6b645d;
+    --accent: #e8590c;
+    --accent-dark: #c2410c;
+    --dark: #2b2622;
+    --sand: #f0e6da;
+    --radius: 16px;
+    --shadow: 0 6px 24px rgba(43, 38, 34, .10);
+    --font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .container { width: min(1120px, 100% - 40px); margin-inline: auto; }
+  section { padding: 84px 0; }
+  h1, h2, h3 { line-height: 1.2; }
+  h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin-bottom: 12px; }
+  .lead { color: var(--muted); max-width: 640px; margin-bottom: 44px; }
+  .eyebrow { display: inline-block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+             color: var(--accent-dark); font-weight: 700; margin-bottom: 10px; }
+
+  /* Кнопки */
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-weight: 700;
+         border: 2px solid transparent; cursor: pointer; font-size: 1rem; font-family: inherit;
+         transition: transform .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease; }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 8px 20px rgba(232, 89, 12, .35); }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-3px); }
+  .btn-ghost { border-color: #fff; color: #fff; }
+  .btn-ghost:hover { background: #fff; color: var(--dark); transform: translateY(-3px); }
+
+  /* Шапка */
+  .site-header { position: sticky; top: 0; z-index: 50; background: rgba(43, 38, 34, .96);
+                 backdrop-filter: blur(6px); color: #fff; }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 800; font-size: 1.35rem; letter-spacing: .02em; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; font-size: .95rem; }
+  .nav-links a { position: relative; padding: 4px 0; }
+  .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px;
+                        background: var(--accent); transition: width .25s ease; }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-toggle, .burger { display: none; }
+
+  /* Hero */
+  .hero { position: relative; color: #fff; padding: 120px 0 130px; overflow: hidden;
+          background: linear-gradient(135deg, #2b2622 0%, #4a3a30 55%, #7a4a2a 100%); }
+  .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; opacity: .9; }
+  .hero::before { width: 260px; height: 260px; right: -60px; top: 40px; background: var(--accent); opacity: .25; }
+  .hero::after  { width: 120px; height: 120px; right: 22%; bottom: 40px; background: #f59f00; opacity: .3; }
+  .hero-inner { position: relative; z-index: 1; max-width: 700px; }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin-bottom: 18px; }
+  .hero h1 em { font-style: normal; color: #ffa94d; }
+  .hero p { font-size: 1.15rem; color: #eadfd3; margin-bottom: 32px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: 36px; margin-top: 54px; }
+  .hero-stats strong { display: block; font-size: 1.9rem; color: #ffa94d; }
+  .hero-stats span { font-size: .9rem; color: #d9cbbb; }
+
+  /* О зале */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+  .about-grid p + p { margin-top: 14px; }
+  .about-art { background: var(--sand); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+
+  /* Карточки */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .card { background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+          transition: transform .25s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 14px 34px rgba(43, 38, 34, .16); }
+  .card .icon { width: 48px; height: 48px; border-radius: 12px; background: var(--sand); color: var(--accent-dark);
+                display: grid; place-items: center; margin-bottom: 16px; }
+  .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .96rem; }
+
+  .alt { background: var(--sand); }
+
+  /* Тарифы */
+  .price { text-align: center; position: relative; }
+  .price .amount { font-size: 2.3rem; font-weight: 800; margin: 10px 0 4px; }
+  .price .amount small { font-size: 1rem; font-weight: 500; color: var(--muted); }
+  .price ul { text-align: left; margin: 18px 0 24px; color: var(--muted); font-size: .95rem; }
+  .price li { padding: 6px 0 6px 26px; position: relative; border-bottom: 1px dashed #e3d8cb; }
+  .price li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .price.featured { border: 2px solid var(--accent); }
+  .badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent);
+           color: #fff; font-size: .75rem; font-weight: 700; padding: 5px 14px; border-radius: 999px; }
+  .price .btn { width: 100%; }
+  .btn-outline { border-color: var(--accent); color: var(--accent-dark); }
+  .btn-outline:hover { background: var(--accent); color: #fff; transform: translateY(-3px); }
+
+  /* Отзывы */
+  .review blockquote { font-size: 1rem; margin-bottom: 18px; }
+  .review footer { display: flex; align-items: center; gap: 12px; font-size: .9rem; color: var(--muted); }
+  .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: #fff;
+            display: grid; place-items: center; font-weight: 700; }
+  .stars { color: #f59f00; letter-spacing: 2px; margin-bottom: 10px; }
+
+  /* Контакты */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contact-list li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #e3d8cb; }
+  .contact-list b { min-width: 110px; }
+  form { background: var(--surface); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  label { display: block; font-weight: 600; font-size: .92rem; margin-bottom: 6px; }
+  input, textarea { width: 100%; padding: 12px 14px; border: 1px solid #d8cbbb; border-radius: 10px;
+                    font: inherit; margin-bottom: 16px; background: #fffdfa; }
+  input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+  /* Подвал */
+  footer.site-footer { background: var(--dark); color: #cfc3b6; padding: 36px 0; font-size: .92rem; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+
+  /* Адаптивность */
+  @media (max-width: 860px) {
+    section { padding: 60px 0; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .burger { display: block; cursor: pointer; font-size: 1.7rem; line-height: 1; }
+    .nav-links { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
+                 background: var(--dark); display: none; }
+    .nav-links a { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,.08); }
+    .nav-toggle:checked ~ .nav-links { display: flex; }
+    .hero { padding: 80px 0 90px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="#top" class="logo">За<span>цеп</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="burger">☰</label>
+    <nav class="nav-links">
+      <a href="#about">О зале</a>
+      <a href="#features">Преимущества</a>
+      <a href="#prices">Тарифы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow" style="color:#ffa94d">Боулдеринг-зал в Санкт-Петербурге</span>
+      <h1>Лезь вверх. <em>Без верёвок</em> и без страха.</h1>
+      <p>Скалолазание для тех, кто никогда не пробовал, и для тех, кто хочет новый уровень. Первое занятие с инструктором — бесплатно.</p>
+      <div class="hero-actions">
+        <a href="#contacts" class="btn btn-primary">Записаться на пробное</a>
+        <a href="#prices" class="btn btn-ghost">Смотреть тарифы</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>45</strong><span>трасс разной сложности</span></div>
+        <div><strong>4,5 м</strong><span>высота стен</span></div>
+        <div><strong>0 ₽</strong><span>первое занятие</span></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">О зале</span>
+        <h2>Спорт, в котором есть что-то от игры</h2>
+        <p>«Зацеп» — небольшой уютный боулдеринг-зал рядом с метро. Мы построили его для студентов и молодых специалистов, которым хочется двигаться, но надоели скучные тренажёры.</p>
+        <p>Боулдеринг — это лазание на невысоких стенах над толстыми матами. Страховочное снаряжение не нужно: достаточно скальных туфель и желания попробовать. Каждая трасса — как головоломка, которую решаешь телом.</p>
+      </div>
+      <div class="about-art" aria-hidden="true">
+        <svg viewBox="0 0 320 220" role="img" aria-label="Схема трассы">
+          <rect x="6" y="6" width="308" height="208" rx="14" fill="#fff" stroke="#e3d8cb" stroke-width="2"/>
+          <path d="M60 190 C 90 140, 130 150, 150 110 S 230 70, 262 28" fill="none" stroke="#e8590c" stroke-width="3" stroke-dasharray="6 6"/>
+          <circle cx="60" cy="190" r="13" fill="#e8590c"/>
+          <circle cx="112" cy="146" r="11" fill="#f59f00"/>
+          <circle cx="150" cy="110" r="14" fill="#2b2622"/>
+          <circle cx="206" cy="86" r="10" fill="#e8590c"/>
+          <circle cx="262" cy="28" r="15" fill="#c2410c"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="alt">
+    <div class="container">
+      <span class="eyebrow">Преимущества</span>
+      <h2>Почему к нам возвращаются</h2>
+      <p class="lead">Мы убрали всё, что мешает начать, и оставили то, что делает занятия в удовольствие.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <h3>Подходит новичкам</h3>
+          <p>Трассы размечены цветом по уровню сложности — от «разминки» до «для опытных».</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </div>
+          <h3>Инструкторы рядом</h3>
+          <p>Покажем технику, поможем с первой трассой и подскажем, как не уставать за пять минут.</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10H3z"/></svg>
+          </div>
+          <h3>Всё включено</h3>
+          <p>Скальные туфли и магнезия — в аренде, раздевалка и душ — бесплатно.</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Работаем до 23:00</h3>
+          <p>Удобно после пар и работы. Утренние часы по будням — по сниженной цене.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="container">
+      <span class="eyebrow">Тарифы</span>
+      <h2>Выберите свой формат</h2>
+      <p class="lead">Студентам — скидка 20% по студенческому билету.</p>
+      <div class="cards">
+        <article class="card price">
+          <h3>Разовое посещение</h3>
+          <div class="amount">600 ₽<small> / визит</small></div>
+          <ul>
+            <li>Без обязательств</li>
+            <li>Весь день, без ограничения по времени</li>
+            <li>Аренда туфель — 150 ₽</li>
+          </ul>
+          <a href="#contacts" class="btn btn-outline">Выбрать</a>
+        </article>
+        <article class="card price featured">
+          <span class="badge">Выбор большинства</span>
+          <h3>Абонемент на месяц</h3>
+          <div class="amount">3 200 ₽<small> / 30 дней</small></div>
+          <ul>
+            <li>Безлимитные посещения</li>
+            <li>Аренда туфель бесплатно</li>
+            <li>2 тренировки с инструктором</li>
+          </ul>
+          <a href="#contacts" class="btn btn-primary">Выбрать</a>
+        </article>
+        <article class="card price">
+          <h3>Утренний</h3>
+          <div class="amount">2 400 ₽<small> / 30 дней</small></div>
+          <ul>
+            <li>Будни с 8:00 до 15:00</li>
+            <li>Аренда туфель — 100 ₽</li>
+            <li>Заморозка до 7 дней</li>
+          </ul>
+          <a href="#contacts" class="btn btn-outline">Выбрать</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="alt">
+    <div class="container">
+      <span class="eyebrow">Отзывы</span>
+      <h2>Что говорят гости</h2>
+      <p class="lead">Несколько отзывов тех, кто пришёл «просто попробовать».</p>
+      <div class="cards">
+        <article class="card review">
+          <div class="stars">★★★★★</div>
+          <blockquote>«Пришла с подругой на пробное и осталась на абонемент. Инструктор объяснил всё так, что с первого раза залезла на жёлтую трассу».</blockquote>
+          <footer><div class="avatar">А</div><div>Анна, студентка</div></footer>
+        </article>
+        <article class="card review">
+          <div class="stars">★★★★★</div>
+          <blockquote>«Отличная замена спортзалу. Весь день сидишь за ноутбуком — а тут голова отключается, остаётся только трасса».</blockquote>
+          <footer><div class="avatar">Д</div><div>Дмитрий, разработчик</div></footer>
+        </article>
+        <article class="card review">
+          <div class="stars">★★★★☆</div>
+          <blockquote>«Атмосфера дружелюбная, никто не осуждает за падения. По вечерам бывает многовато людей, но это плюс — всегда есть с кем лезть».</blockquote>
+          <footer><div class="avatar">М</div><div>Мария, дизайнер</div></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">Контакты</span>
+        <h2>Приходите знакомиться</h2>
+        <p class="lead" style="margin-bottom:20px">Оставьте заявку — перезвоним и подберём удобное время для пробного занятия.</p>
+        <ul class="contact-list">
+          <li><b>Адрес</b><span>Санкт-Петербург, ул. Примерная, д. 10</span></li>
+          <li><b>Часы работы</b><span>Пн–Пт 8:00–23:00, Сб–Вс 10:00–22:00</span></li>
+          <li><b>Телефон</b><span>+7 (812) 000-00-00</span></li>
+          <li><b>Соцсети</b><span>VK · Telegram</span></li>
+        </ul>
+      </div>
+      <form action="#" method="post">
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" name="name" placeholder="Как к вам обращаться?">
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__">
+        <label for="msg">Комментарий</label>
+        <textarea id="msg" name="msg" rows="3" placeholder="Например: опыта нет, удобно по вечерам"></textarea>
+        <button type="submit" class="btn btn-primary" style="width:100%">Записаться на пробное</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="logo">За<span>цеп</span></div>
+    <p>© 2026 Боулдеринг-зал «Зацеп». Учебный проект.</p>
+  </div>
+</footer>
+
+<script>
+  // Закрытие мобильного меню после выбора пункта
+  const navToggle = document.getElementById('nav-toggle');
+  document.querySelectorAll('.nav-links a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navToggle.checked = false;
+    });
+  });
+</script>
+
+</body>
+</html>
