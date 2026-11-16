@@ -10,21 +10,38 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Lint HTML
+        run: npx --yes htmlhint@1.1.4 index2.html
+
   deploy:
+    needs: lint
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/checkout@v4
+      - name: Build site
+        run: |
+          mkdir _site
+          cp index2.html _site/index.html
+          cp -r assets _site/assets
+          [ -f style.css ] && cp style.css _site/ || true
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
+          path: _site
+      - id: deployment
         uses: actions/deploy-pages@v4
